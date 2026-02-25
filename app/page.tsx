@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import OperationalNodes from "./components/OperationalNodes";
 import EcosystemTimeline from "./components/EcosystemTimeline";
 import CompanyJourney from "./components/CompanyJourney";
+import ProjectsShowcaseVariant from "./components/ProjectsShowcaseVariant";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <OperationalNodes />
       <EcosystemTimeline />
       <CompanyJourney  />
+      <ProjectsShowcaseVariant />
     </main>
   );
 }
