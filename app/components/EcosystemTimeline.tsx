@@ -68,7 +68,7 @@ const timelineSteps = [
     graphic: (
       <div className="relative w-full h-full flex items-center justify-center">
         {/* Vital Sign Monitoring / System Health */}
-        <div className="w-56 h-32 relative">
+        <div className="w-56 h-32 relative translate-y-1.5 md:translate-y-1">
           <svg viewBox="0 0 200 100" className="w-full h-full">
             <polyline
               fill="none"
@@ -167,20 +167,34 @@ export default function EcosystemTimeline() {
       ref={sectionRef} 
       className="relative h-screen w-full bg-[#0c0d0c] overflow-hidden border-t border-stone-800 flex items-center"
     >
-      {/* <div className="absolute top-12 md:top-24 left-[4vw] flex items-center gap-3 z-10 mix-blend-difference">
-        <span className="text-[10px] font-mono text-stone-400 tracking-[0.2em] uppercase">Phase 03</span>
-        <div className="w-12 h-[1px] bg-stone-500" />
-      </div> */}
+      {/* Sticky Section Header (Matches Operational Nodes style) */}
+      <div className="absolute top-24 md:top-32 left-0 w-full px-[4vw] z-40 pointer-events-none">
+        <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+          <div className="flex flex-col gap-4">
+            {/* <div className="flex items-center gap-3">
+              <span className="text-[10px] font-mono text-stone-500 tracking-[0.2em] uppercase">Phase 03</span>
+              <div className="w-12 h-[1px] bg-stone-700" />
+            </div> */}
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#e1e3de] tracking-tight">
+              Ecosystem Lifecycle
+            </h2>
+          </div>
+          
+          <p className="max-w-md text-stone-400 text-sm md:text-base leading-relaxed text-balance">
+            Watch the progression from abstract strategy to breathing infrastructure. Our methodology ensures zero loss of fidelity between the blueprint and the build.
+          </p>
+        </div>
+      </div>
 
       <div 
         ref={scrollContainerRef}
-        className="flex h-full py-32 md:py-0 md:items-center w-max relative"
+        className="flex h-full py-32 pt-48 md:py-0 md:pt-48 md:items-center w-max relative"
       >
         {/* Initial spacer to push the first item off the extreme left edge slightly */}
         <div className="w-[10vw]" />
 
         {/* The Single Master Timeline Line */}
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#e1e3de]/20 hidden md:block z-0" />
+        <div className="absolute top-[60.6%] left-0 w-full h-[1px] bg-[#e1e3de]/20 hidden md:block z-0" />
 
         {timelineSteps.map((step, index) => (
           <div 
@@ -188,7 +202,7 @@ export default function EcosystemTimeline() {
             className="w-[85vw] md:w-[60vw] lg:w-[45vw] flex-shrink-0 h-[70vh] md:h-[60vh] flex flex-col md:flex-row relative"
           >
             {/* Left Content Half */}
-            <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:pr-12 md:pl-0 z-10">
+            <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-start pt-12 md:pt-[20%] px-8 md:pr-12 md:pl-0 z-10">
               <span className="font-mono text-xs text-stone-500 mb-6 tracking-widest">{step.id} / {step.phase}</span>
               <h3 className="font-serif text-3xl md:text-4xl text-[#e1e3de] leading-tight mb-4">
                 {step.title}
@@ -204,13 +218,13 @@ export default function EcosystemTimeline() {
             </div>
             
             {/* Timeline Node marker (hidden on mobile, visible on desktop overlapping the center timeline) */}
-            <div className="absolute top-1/2 left-0 w-4 h-4 bg-[#0c0d0c] border-2 border-[#e1e3de] rounded-full -translate-y-1/2 -translate-x-1/2 hidden md:block z-20" />
+            <div className="absolute top-[50.5%] left-0 w-4 h-4 bg-[#0c0d0c] border-2 border-[#e1e3de] rounded-full -translate-y-1/2 -translate-x-1/2 hidden md:block z-20" />
           </div>
         ))}
 
         {/* Ending spacer to allow scrolling past the final item */}
         <div className="w-[20vw] h-full flex flex-col justify-center px-12 relative">
-          <div className="absolute top-1/2 left-0 w-4 h-4 bg-[#0c0d0c] border-2 border-stone-700 rounded-full -translate-y-1/2 -translate-x-1/2 hidden md:block z-20" />
+          <div className="absolute top-[50.5%] left-0 w-4 h-4 bg-[#0c0d0c] border-2 border-stone-700 rounded-full -translate-y-1/2 -translate-x-1/2 hidden md:block z-20" />
           <h2 className="font-serif text-4xl text-[#e1e3de] tracking-tight">
             The Result.
           </h2>
