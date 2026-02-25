@@ -75,24 +75,100 @@ export default function CompanyJourney() {
     const ctx = gsap.context(() => {
       if (!travelerRef.current) return;
       
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top center",   // Start exactly when top of section hits middle of screen
-          end: "bottom center",  // End exactly when bottom of section hits middle of screen
-          scrub: true,
+      // Exact mathematical parser for the true SVG Beziers
+      const buildPathMath = () => {
+        const points: {x: number, y: number}[] = [];
+        const beziers = [
+          // Segment 1
+          [{x: 50, y: 0}, {x: 50, y: 8}, {x: 75, y: 8}, {x: 75, y: 18}],
+          // Segment 2
+          [{x: 75, y: 18}, {x: 75, y: 28}, {x: 25, y: 28}, {x: 25, y: 38}],
+          // Segment 3
+          [{x: 25, y: 38}, {x: 25, y: 48}, {x: 75, y: 48}, {x: 75, y: 58}],
+          // Segment 4
+          [{x: 75, y: 58}, {x: 75, y: 68}, {x: 25, y: 68}, {x: 25, y: 78}],
+          // Segment 5
+          [{x: 25, y: 78}, {x: 25, y: 88}, {x: 50, y: 88}, {x: 50, y: 95}]
+        ];
+        
+        // 1000 samples per segment is highly precise (5000 points total)
+        for (const [p0, p1, p2, p3] of beziers) {
+          for (let i = 0; i <= 1000; i++) {
+            const t = i / 1000;
+            const u = 1 - t;
+            const x = (u*u*u)*p0.x + 3*(u*u)*t*p1.x + 3*u*(t*t)*p2.x + (t*t*t)*p3.x;
+            const y = (u*u*u)*p0.y + 3*(u*u)*t*p1.y + 3*u*(t*t)*p2.y + (t*t*t)*p3.y;
+            points.push({ x, y });
+          }
+        }
+        
+        // Final line segment
+        for(let i = 0; i <= 1000; i++) {
+           points.push({ x: 50, y: 95 + (i/1000)*5 });
+        }
+        
+        return points;
+      };
+
+      const pathData = buildPathMath();
+
+      // Find exactly where you are mathematically on the bezier curves based on Y scroll!
+      const getExactPoint = (targetY: number) => {
+         let bestPt = pathData[0];
+         let minDiff = 999;
+         
+         // Start searching near a fast heuristic index to save CPU cycles 
+         // Since the points array is highly ordered by Y visually
+         const estIndex = Math.floor((targetY / 100) * pathData.length);
+         const searchWindow = 500; // Search locally around the estimate
+         
+         const start = Math.max(0, estIndex - searchWindow);
+         const end = Math.min(pathData.length, estIndex + searchWindow);
+         
+         for (let i = start; i < end; i++) {
+            const diff = Math.abs(targetY - pathData[i].y);
+            if (diff < minDiff) {
+               minDiff = diff;
+               bestPt = pathData[i];
+            }
+         }
+         return bestPt;
+      };
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top center",
+        end: "bottom center",
+        scrub: true,
+        onUpdate: (self) => {
+          if (!travelerRef.current || !containerRef.current) return;
+          
+          const y1 = self.progress * 100;
+          const pt1 = getExactPoint(y1);
+
+          // Sample slightly ahead to compute the exact screen-space tangent
+          const y2 = Math.min((self.progress + 0.001) * 100, 100);
+          const pt2 = getExactPoint(y2);
+
+          const w = containerRef.current.getBoundingClientRect().width;
+          const h = containerRef.current.getBoundingClientRect().height;
+
+          const dxPixel = ((pt2.x - pt1.x) / 100) * w;
+          const dyPixel = ((pt2.y - pt1.y) / 100) * h;
+
+          let rotation = Math.atan2(dyPixel, dxPixel) * (180 / Math.PI) - 90;
+
+          if (self.progress >= 0.999) {
+            rotation = 0;
+          }
+
+          gsap.set(travelerRef.current, { 
+            left: `${pt1.x}%`, 
+            top: `${pt1.y}%`,
+            rotation: rotation
+          });
         }
       });
-
-      // Animate the X position left and right to flawlessly mimic the SVG Cubic Bezier
-      // The curve bends at Y=18, Y=38, Y=58, Y=78, Y=95.
-      // So durations (Y-distances) are: 18, 20, 20, 20, 17, 5.
-      tl.to(travelerRef.current, { left: "75%", ease: "sine.inOut", duration: 18 })
-        .to(travelerRef.current, { left: "25%", ease: "sine.inOut", duration: 20 })
-        .to(travelerRef.current, { left: "75%", ease: "sine.inOut", duration: 20 })
-        .to(travelerRef.current, { left: "25%", ease: "sine.inOut", duration: 20 })
-        .to(travelerRef.current, { left: "50%", ease: "sine.inOut", duration: 17 })
-        .to(travelerRef.current, { left: "50%", ease: "none", duration: 5 });
 
       // Reveal the checkpoints precisely as the sticky center hits their Y coordinate!
       milestones.forEach((m, index) => {
@@ -176,15 +252,62 @@ export default function CompanyJourney() {
            />
          </svg>
 
-         {/* 3. The Physical Traveler Object (The "Car") */}
+         {/* 3. The Physical Traveler Object (The "Ambulance") */}
          <div className="absolute top-0 left-0 w-full h-[400vh] pointer-events-none z-30">
-           <div className="sticky top-[50vh] w-full">
-             <div 
-               ref={travelerRef}
-               className="traveler-car absolute w-6 h-6 bg-[#e1e3de] rounded-full shadow-[0_0_20px_4px_rgba(225,227,222,0.6)] transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
-               style={{ left: '50%' }}
-             >
-               <div className="w-2 h-2 bg-[#0c0d0c] rounded-full" />
+           <div 
+             ref={travelerRef}
+             className="traveler-car absolute transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+             style={{ left: '50%', top: '0%' }}
+           >
+             {/* The physical Ambulance top-down chassis */}
+             <div className="relative w-8 h-16 bg-stone-100 border-[1.5px] border-[#0c0d0c] rounded-[3px] shadow-[0_8px_30px_rgba(0,0,0,0.6)] overflow-hidden z-20">
+               {/* Hood / Cabin split */}
+               <div className="absolute top-[32px] w-full h-[1px] bg-stone-300" />
+               {/* Windshield (Facing down, since we are moving down) */}
+               <div className="absolute bottom-[6px] left-1/2 -translate-x-1/2 w-[70%] h-4 bg-stone-900 border-[1.5px] border-stone-700 rounded-sm" />
+               {/* Rear Window */}
+               <div className="absolute top-[4px] left-1/2 -translate-x-1/2 w-[60%] h-2 bg-stone-800 rounded-[1px]" />
+               
+               {/* Medical Red Cross on Roof */}
+               <div className="absolute top-[16px] left-1/2 -translate-x-1/2">
+                 <div className="w-3.5 h-[3.5px] bg-red-600 rounded-[1px]" />
+                 <div className="w-[3.5px] h-3.5 bg-red-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[1px]" />
+               </div>
+
+               {/* Headlights */}
+               <div className="absolute bottom-0 left-[2px] w-[5px] h-[3px] bg-yellow-100 shadow-[0_4px_12px_rgba(254,240,138,0.9)] rounded-t-[1px]" />
+               <div className="absolute bottom-0 right-[2px] w-[5px] h-[3px] bg-yellow-100 shadow-[0_4px_12px_rgba(254,240,138,0.9)] rounded-t-[1px]" />
+               {/* Tail lights */}
+               <div className="absolute top-0 left-[2px] w-[5px] h-[2px] bg-red-500 rounded-b-[1px]" />
+               <div className="absolute top-0 right-[2px] w-[5px] h-[2px] bg-red-500 rounded-b-[1px]" />
+             </div>
+
+             {/* The Siren Lightbar (Roof mounted, sitting over everything) */}
+             <div className="absolute bottom-[28px] left-1/2 -translate-x-1/2 flex items-center justify-center z-30 w-7 h-1.5 bg-[#0c0d0c] rounded-[1px] border-[0.5px] border-stone-600 overflow-hidden shadow-2xl">
+                 <div className="w-1/2 h-full animate-pulse bg-blue-500" style={{ animationDuration: '0.2s' }} />
+                 <div className="w-1/2 h-full animate-pulse bg-red-500" style={{ animationDuration: '0.2s', animationDelay: '0.1s' }} />
+             </div>
+
+             {/* Rotating Beacons (Casting Light radially on the Road via Conic Gradients) */}
+             <div className="absolute bottom-[28px] left-1/2 -translate-x-1/2 pointer-events-none z-10 w-0 h-0 flex items-center justify-center">
+               <div 
+                 className="absolute w-24 h-24 rounded-full mix-blend-screen animate-spin opacity-[0.15]"
+                 style={{
+                   background: 'conic-gradient(from 0deg, transparent 0deg, rgba(239, 68, 68, 0.4) 40deg, transparent 80deg, transparent 180deg, rgba(59, 130, 246, 0.4) 220deg, transparent 260deg)',
+                   animationDuration: '1.2s'
+                 }}
+               />
+               <div 
+                 className="absolute w-20 h-20 rounded-full mix-blend-screen animate-spin opacity-[0.15]"
+                 style={{
+                   background: 'conic-gradient(from 90deg, transparent 0deg, rgba(59, 130, 246, 0.3) 40deg, transparent 80deg, transparent 180deg, rgba(239, 68, 68, 0.3) 220deg, transparent 260deg)',
+                   animationDuration: '1.5s',
+                   animationDirection: 'reverse'
+                 }}
+               />
+               
+               {/* Central Core Glow to illuminate the ambulance itself in the dark */}
+               <div className="absolute w-12 h-12 bg-stone-300/10 rounded-full blur-md animate-pulse" />
              </div>
            </div>
          </div>

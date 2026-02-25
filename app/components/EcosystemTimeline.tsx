@@ -68,7 +68,7 @@ const timelineSteps = [
     graphic: (
       <div className="relative w-full h-full flex items-center justify-center">
         {/* Vital Sign Monitoring / System Health */}
-        <div className="w-56 h-32 relative translate-y-1.5 md:translate-y-1">
+        <div className="w-56 h-32 relative -translate-y-0">
           <svg viewBox="0 0 200 100" className="w-full h-full">
             <polyline
               fill="none"
@@ -194,7 +194,7 @@ export default function EcosystemTimeline() {
         <div className="w-[10vw]" />
 
         {/* The Single Master Timeline Line */}
-        <div className="absolute top-[60.6%] left-0 w-full h-[1px] bg-[#e1e3de]/20 hidden md:block z-0" />
+        <div className="absolute top-[60.6%%] left-0 w-full h-[1px] bg-[#e1e3de]/20 hidden md:block z-0" />
 
         {timelineSteps.map((step, index) => (
           <div 
@@ -202,14 +202,21 @@ export default function EcosystemTimeline() {
             className="w-[85vw] md:w-[60vw] lg:w-[45vw] flex-shrink-0 h-[70vh] md:h-[60vh] flex flex-col md:flex-row relative"
           >
             {/* Left Content Half */}
-            <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-start pt-12 md:pt-[20%] px-8 md:pr-12 md:pl-0 z-10">
-              <span className="font-mono text-xs text-stone-500 mb-6 tracking-widest">{step.id} / {step.phase}</span>
-              <h3 className="font-serif text-3xl md:text-4xl text-[#e1e3de] leading-tight mb-4">
-                {step.title}
-              </h3>
-              <p className="text-stone-400 text-sm md:text-base leading-relaxed text-balance">
-                {step.description}
-              </p>
+            <div className="w-full md:w-1/2 h-1/2 md:h-full relative z-10">
+              {/* Title Block (Anchored above the 50% centerline) */}
+              <div className="absolute top-0 left-0 w-full h-[50%] flex flex-col justify-end pb-6 md:pb-8 px-8 md:pr-12 md:pl-0">
+                <span className="font-mono text-[10px] md:text-xs text-stone-500 mb-3 md:mb-4 tracking-widest uppercase">{step.id} / {step.phase}</span>
+                <h3 className="font-serif text-3xl md:text-4xl text-[#e1e3de] leading-tight">
+                  {step.title}
+                </h3>
+              </div>
+              
+              {/* Description Block (Anchored below the 50% centerline) */}
+              <div className="absolute top-[50%] left-0 w-full h-[50%] flex flex-col justify-start pt-6 md:pt-8 px-8 md:pr-12 md:pl-0">
+                <p className="text-stone-400 text-sm md:text-base leading-relaxed text-balance">
+                  {step.description}
+                </p>
+              </div>
             </div>
 
             {/* Right Graphic Half */}
@@ -218,13 +225,13 @@ export default function EcosystemTimeline() {
             </div>
             
             {/* Timeline Node marker (hidden on mobile, visible on desktop overlapping the center timeline) */}
-            <div className="absolute top-[50.5%] left-0 w-4 h-4 bg-[#0c0d0c] border-2 border-[#e1e3de] rounded-full -translate-y-1/2 -translate-x-1/2 hidden md:block z-20" />
+            <div className="absolute top-[50%] left-0 w-4 h-4 bg-[#0c0d0c] border-2 border-[#e1e3de] rounded-full -translate-y-1/2 -translate-x-1/2 hidden md:block z-20" />
           </div>
         ))}
 
         {/* Ending spacer to allow scrolling past the final item */}
         <div className="w-[20vw] h-full flex flex-col justify-center px-12 relative">
-          <div className="absolute top-[50.5%] left-0 w-4 h-4 bg-[#0c0d0c] border-2 border-stone-700 rounded-full -translate-y-1/2 -translate-x-1/2 hidden md:block z-20" />
+          <div className="absolute top-[50%] left-0 w-4 h-4 bg-[#0c0d0c] border-2 border-stone-700 rounded-full -translate-y-1/2 -translate-x-1/2 hidden md:block z-20" />
           <h2 className="font-serif text-4xl text-[#e1e3de] tracking-tight">
             The Result.
           </h2>
