@@ -123,7 +123,7 @@ const timelineSteps = [
              />
            ))}
         </div>
-        <div className="absolute bottom-4 font-mono text-[8px] text-[#e1e3de]/30 uppercase tracking-[0.3em]">Lifecycle_Scale_Module</div>
+        {/* <div className="absolute bottom-4 font-mono text-[8px] text-[#e1e3de]/30 uppercase tracking-[0.3em]">Lifecycle_Scale_Module</div> */}
       </div>
     )
   }
