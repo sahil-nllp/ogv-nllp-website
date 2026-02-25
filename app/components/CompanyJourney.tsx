@@ -15,6 +15,16 @@ const milestones = [
     top: 18,
     left: 75,
     align: "left",
+    graphic: (
+      <div className="relative w-40 lg:w-56 h-40 lg:h-56 border border-stone-800 rounded-full flex items-center justify-center bg-[#0c0d0c] shadow-2xl">
+        <div className="absolute w-32 lg:w-48 h-32 lg:h-48 border border-stone-800 rounded-full animate-[spin_10s_linear_infinite] border-t-stone-500 border-b-stone-500" />
+        <div className="w-16 lg:w-20 h-16 lg:h-20 border border-stone-700 rounded-full flex items-center justify-center bg-stone-900 overflow-hidden">
+          <div className="w-8 lg:w-10 h-8 lg:h-10 bg-[#e1e3de]/10 rounded-full blur-md animate-pulse" />
+        </div>
+        <div className="absolute w-full h-[1px] bg-stone-800/50" />
+        <div className="absolute h-full w-[1px] bg-stone-800/50" />
+      </div>
+    )
   },
   {
     year: "Year 04",
@@ -24,6 +34,13 @@ const milestones = [
     top: 38,
     left: 25,
     align: "right",
+    graphic: (
+      <div className="w-40 lg:w-56 h-40 lg:h-56 grid grid-cols-3 grid-rows-3 gap-2 lg:gap-3 p-4 bg-[#e1e3de]/5 border border-[#e1e3de]/10 backdrop-blur-sm rounded-lg shadow-2xl -skew-y-6 transform hover:skew-y-0 transition-transform duration-700 ease-out">
+        {[...Array(9)].map((_, i) => (
+          <div key={i} className={`rounded-sm border border-stone-700/50 ${i === 4 ? 'bg-[#e1e3de]/20 border-[#e1e3de]/50 animate-pulse shadow-[0_0_15px_rgba(225,227,222,0.2)]' : 'bg-stone-900/50'}`} />
+        ))}
+      </div>
+    )
   },
   {
     year: "Year 07",
@@ -33,6 +50,15 @@ const milestones = [
     top: 58,
     left: 75,
     align: "left",
+    graphic: (
+      <div className="w-40 lg:w-56 h-40 lg:h-56 relative flex items-center justify-center">
+        <div className="absolute w-28 lg:w-40 h-28 lg:h-40 border border-[#e1e3de]/20 bg-stone-900 rounded-lg transform -rotate-12 transition-transform duration-1000 hover:rotate-0" />
+        <div className="absolute w-28 lg:w-40 h-28 lg:h-40 border border-[#e1e3de]/30 bg-[#121312] rounded-lg transform -rotate-6 transition-transform duration-1000 hover:rotate-6 shadow-xl" />
+        <div className="absolute w-28 lg:w-40 h-28 lg:h-40 border border-[#e1e3de]/40 bg-[#1a1b1a] rounded-lg shadow-2xl z-10 flex items-center justify-center transition-transform duration-1000 hover:rotate-12 hover:scale-105">
+           <div className="w-8 h-8 rounded-full border-2 border-[#e1e3de]/30 animate-ping" />
+        </div>
+      </div>
+    )
   },
   {
     year: "Year 10",
@@ -42,6 +68,16 @@ const milestones = [
     top: 78,
     left: 25,
     align: "right",
+    graphic: (
+      <div className="w-48 lg:w-64 h-32 lg:h-40 relative flex items-center justify-center bg-transparent">
+        <svg viewBox="0 0 200 100" className="w-full h-full drop-shadow-[0_0_10px_rgba(225,227,222,0.2)]">
+          <path d="M 0,50 Q 25,0 50,50 T 100,50 T 150,50 T 200,50" fill="none" stroke="#e1e3de" strokeWidth="1" strokeDasharray="2 4" className="opacity-40 animate-[dash_20s_linear_infinite]" />
+          <path d="M 0,50 Q 25,100 50,50 T 100,50 T 150,50 T 200,50" fill="none" stroke="#e1e3de" strokeWidth="1.5" className="opacity-80" />
+          <circle cx="50" cy="50" r="3" fill="#e1e3de" className="animate-pulse" />
+          <circle cx="150" cy="50" r="3" fill="#e1e3de" className="animate-pulse" />
+        </svg>
+      </div>
+    )
   },
   {
     year: "Year 12",
@@ -51,6 +87,7 @@ const milestones = [
     top: 95,
     left: 50,
     align: "center",
+    graphic: null
   }
 ];
 
@@ -58,6 +95,7 @@ export default function CompanyJourney() {
   const containerRef = useRef<HTMLElement>(null);
   const travelerRef = useRef<HTMLDivElement>(null);
   const milestoneRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const graphicRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // A calculated mathematical S-Curve wrapping down the screen 
   // Works identically across mobile and desktop because coordinates are perfectly mapped
@@ -173,23 +211,28 @@ export default function CompanyJourney() {
       // Reveal the checkpoints precisely as the sticky center hits their Y coordinate!
       milestones.forEach((m, index) => {
         const el = milestoneRefs.current[index];
-        if (!el) return;
+        const gEl = graphicRefs.current[index];
 
-        gsap.fromTo(el,
-          { opacity: 0, scale: 0.9, filter: "blur(4px)" },
-          { 
-            opacity: 1, 
-            scale: 1, 
-            filter: "blur(0px)", 
-            duration: 0.6, 
-            ease: "back.out(2)",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: `${m.top}% center`, // animate right as this percentage of the container hits the middle of the screen!
-              toggleActions: "play none none reverse",
-            }
-          }
-        );
+        const animProps = { 
+          opacity: 1, 
+          scale: 1, 
+          filter: "blur(0px)", 
+          duration: 0.6, 
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: `${m.top}% center`,
+            toggleActions: "play none none reverse",
+          } as gsap.DOMTarget | gsap.plugins.ScrollTriggerStaticVars | undefined
+        };
+
+        if (el) {
+          gsap.fromTo(el, { opacity: 0, scale: 0.9, filter: "blur(4px)" }, animProps);
+        }
+        
+        if (gEl) {
+          gsap.fromTo(gEl, { opacity: 0, scale: 0.9, filter: "blur(4px)" }, animProps);
+        }
       });
 
     }, containerRef);
@@ -314,44 +357,57 @@ export default function CompanyJourney() {
 
          {/* 4. Checkpoints Overlay */}
          {milestones.map((m, i) => (
-           <div 
-            key={i}
-            ref={el => { milestoneRefs.current[i] = el; }}
-            className="absolute z-20 w-px h-px pointer-events-auto"
-            style={{ 
-              top: `${m.top}%`, 
-              left: `${m.left}%`,
-            }}
-           >
-              {/* Stationary Sub-Node embedded in the road */}
-              <div className="absolute w-[8px] h-[8px] bg-[#0c0d0c] border-[2px] border-[#e1e3de] rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-inner" />
-              
-              {/* Interactive Data Block */}
-              <div className={`absolute w-[240px] md:w-[350px]
-                ${m.align === 'left' ? 'right-full top-1/2 -translate-y-1/2 mr-6 md:mr-10 text-right' : 
-                  m.align === 'right' ? 'left-full top-1/2 -translate-y-1/2 ml-6 md:ml-10 text-left' : 
-                  'top-full left-1/2 -translate-x-1/2 mt-8 md:mt-12 text-center'}
-              `}>
-                <div className={`flex flex-col gap-2 md:gap-3 ${m.align === 'left' ? 'items-end' : m.align === 'right' ? 'items-start' : 'items-center'}`}>
-                  
-                  {/* Digital Checkpoint Data Badge */}
-                  <div className="flex flex-col gap-1 items-inherit">
-                    <span className="font-mono text-[10px] md:text-xs text-stone-500 tracking-[0.2em] uppercase">{m.year}</span>
-                    <div className="bg-[#e1e3de]/5 border border-[#e1e3de]/10 px-2 md:px-3 py-1 md:py-1.5 rounded text-[8px] md:text-[9px] font-mono tracking-widest text-[#e1e3de]/80 shadow-2xl backdrop-blur-md">
-                      [{m.dataPoint}]
-                    </div>
-                  </div>
+           <div key={i}>
+              <div 
+               ref={el => { milestoneRefs.current[i] = el; }}
+               className="absolute z-20 w-px h-px pointer-events-auto"
+               style={{ 
+                 top: `${m.top}%`, 
+                 left: `${m.left}%`,
+               }}
+              >
+                 {/* Stationary Sub-Node embedded in the road */}
+                 <div className="absolute w-[8px] h-[8px] bg-[#0c0d0c] border-[2px] border-[#e1e3de] rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-inner" />
+                 
+                 {/* Interactive Data Block */}
+                 <div className={`absolute w-[240px] md:w-[350px]
+                   ${m.align === 'left' ? 'right-full top-1/2 -translate-y-1/2 mr-6 md:mr-10 text-right' : 
+                     m.align === 'right' ? 'left-full top-1/2 -translate-y-1/2 ml-6 md:ml-10 text-left' : 
+                     'top-full left-1/2 -translate-x-1/2 mt-8 md:mt-12 text-center'}
+                 `}>
+                   <div className={`flex flex-col gap-2 md:gap-3 ${m.align === 'left' ? 'items-end' : m.align === 'right' ? 'items-start' : 'items-center'}`}>
+                     
+                     {/* Digital Checkpoint Data Badge */}
+                     <div className="flex flex-col gap-1 items-inherit">
+                       <span className="font-mono text-[10px] md:text-xs text-stone-500 tracking-[0.2em] uppercase">{m.year}</span>
+                       <div className="bg-[#e1e3de]/5 border border-[#e1e3de]/10 px-2 md:px-3 py-1 md:py-1.5 rounded text-[8px] md:text-[9px] font-mono tracking-widest text-[#e1e3de]/80 shadow-2xl backdrop-blur-md">
+                         [{m.dataPoint}]
+                       </div>
+                     </div>
 
-                  <h3 className="font-serif text-2xl md:text-4xl text-[#e1e3de] leading-tight drop-shadow-xl mt-1 md:mt-2">
-                    {m.title}
-                  </h3>
-                  
-                  <p className="text-stone-400 text-xs md:text-sm leading-relaxed text-balance drop-shadow-md">
-                    {m.description}
-                  </p>
-                </div>
+                     <h3 className="font-serif text-2xl md:text-4xl text-[#e1e3de] leading-tight drop-shadow-xl mt-1 md:mt-2">
+                       {m.title}
+                     </h3>
+                     
+                     <p className="text-stone-400 text-xs md:text-sm leading-relaxed text-balance drop-shadow-md">
+                       {m.description}
+                     </p>
+                   </div>
+                 </div>
               </div>
 
+              {/* Graphical Counter-Balance (Opposite Side of the Road entirely) */}
+              {m.graphic && (
+                <div 
+                  ref={el => { graphicRefs.current[i] = el; }}
+                  className="absolute hidden md:flex items-center justify-center pointer-events-auto z-10"
+                  style={{ top: `${m.top}%`, left: `${100 - m.left}%` }}
+                >
+                  <div className="transform -translate-x-1/2 -translate-y-1/2 opacity-40 hover:opacity-100 transition-opacity duration-700 ease-out cursor-default">
+                    {m.graphic}
+                  </div>
+                </div>
+              )}
            </div>
          ))}
       </div>
