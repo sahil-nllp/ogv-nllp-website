@@ -24,14 +24,10 @@ interface MapNode {
 const HQ_COORDINATES: [number, number] = [151.2093, -33.8688]; // Sydney
 
 const nodes: MapNode[] = [
-  { id: "ny", city: "New York", country: "USA", coordinates: [-74.006, 40.7128], metricTitle: "Data Processed", metricValue: "42 PB/s" },
-  { id: "tk", city: "Tokyo", country: "Japan", coordinates: [139.6917, 35.6895], metricTitle: "Uptime", metricValue: "99.999%" },
-//   { id: "sp", city: "São Paulo", country: "Brazil", coordinates: [-46.6333, -23.5505], metricTitle: "Active Nodes", metricValue: "12,400" },
-  { id: "sg", city: "Singapore", country: "Singapore", coordinates: [103.8198, 1.3521], metricTitle: "Latency", metricValue: "<4ms" },
-  { id: "sf", city: "San Francisco", country: "USA", coordinates: [-122.4194, 37.7749], metricTitle: "Compute Models", metricValue: "1.2M+" },
-  { id: "fr", city: "Frankfurt", country: "Germany", coordinates: [8.6821, 50.1109], metricTitle: "Encrypted Auth", metricValue: "94B/hr" },
-  { id: "ldn", city: "London", country: "UK", coordinates: [-0.1276, 51.5072], metricTitle: "Redundancy", metricValue: "Tier IV" },
-  { id: "cpt", city: "Cape Town", country: "South Africa", coordinates: [18.4232, -33.9249], metricTitle: "Throughput", metricValue: "8.4 Tbps" }
+  { id: "nz", city: "Auckland", country: "New Zealand", coordinates: [174.7633, -36.8485], metricTitle: "Data Processed", metricValue: "42 PB/s" },
+  { id: "in", city: "Mumbai", country: "India", coordinates: [72.8777, 19.0760], metricTitle: "Latency", metricValue: "<4ms" },
+  { id: "ae", city: "Dubai", country: "UAE", coordinates: [55.2708, 25.2048], metricTitle: "Uptime", metricValue: "99.999%" },
+  { id: "uk", city: "London", country: "UK", coordinates: [-0.1276, 51.5072], metricTitle: "Redundancy", metricValue: "Tier IV" }
 ];
 
 export default function GlobalImpactMap() {
@@ -152,7 +148,7 @@ export default function GlobalImpactMap() {
           projection="geoEqualEarth" // A beautiful oval globe projection that bounds the lines
           projectionConfig={{
             scale: 170,
-            rotate: [-110, 0, 0], // Rotates the globe so the Pacific/Asia is centered, preventing lines to AMER/EMEA from crossing the 'back' of the map
+            rotate: [-85, 0, 0], // Centered between the UK and New Zealand/Australia
             center: [0, 0] // Keep center 0,0 when using rotate for longitude shifting
           }}
           className="w-full h-full"

@@ -4,6 +4,7 @@ import EcosystemTimeline from "./components/EcosystemTimeline";
 import CompanyJourney from "./components/CompanyJourney";
 import ProjectsShowcaseVariant from "./components/ProjectsShowcaseVariant";
 import GlobalImpactMap from "./components/GlobalImpactMap";
+import GlobalImpactMapV2 from "./components/GlobalImpactMapV2";
 import TestimonialsMarquee from "./components/TestimonialsMarquee";
 import CtaRevealFooterVariant from "./components/CtaRevealFooterVariant";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <CompanyJourney  />
       <ProjectsShowcaseVariant />
       <GlobalImpactMap />
+      {/* <GlobalImpactMapV2/> */}
       <TestimonialsMarquee />
       <CtaRevealFooterVariant />
     </main>
