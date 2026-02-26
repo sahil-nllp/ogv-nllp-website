@@ -3,6 +3,8 @@ import OperationalNodes from "./components/OperationalNodes";
 import EcosystemTimeline from "./components/EcosystemTimeline";
 import CompanyJourney from "./components/CompanyJourney";
 import ProjectsShowcaseVariant from "./components/ProjectsShowcaseVariant";
+import TestimonialsMarquee from "./components/TestimonialsMarquee";
+import CtaRevealFooterVariant from "./components/CtaRevealFooterVariant";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <EcosystemTimeline />
       <CompanyJourney  />
       <ProjectsShowcaseVariant />
+      <TestimonialsMarquee />
+      <CtaRevealFooterVariant />
     </main>
   );
 }

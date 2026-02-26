@@ -45,7 +45,7 @@ export default function ProjectsShowcaseVariant() {
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top 80px", // When the section reaches the header
-        end: `+=${totalScrollDuration}`, // Stay dark for the entire duration of the pinned scroll
+        end: () => `+=${totalScrollDuration + window.innerHeight}`, // Stay dark for the entire pinned scroll PLUS the time it takes to scroll the section off screen
         toggleClass: { targets: "#main-header", className: "theme-light" }
       });
       
