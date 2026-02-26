@@ -61,15 +61,16 @@ export default function ProjectsShowcaseVariant() {
 
       /* 
        * SCENE 1: THE EXPANSION 
-       * Starts as a tiny pill on the lower-left side of the screen.
+       * Starts as a tiny pill in the center of the screen.
        * Expands horizontally and vertically until it perfectly fills the viewport.
        */
       tl.to(containerRef.current, {
-        width: "100vw", // Full screen again
+        width: "100vw", // Full screen
         height: "100vh",
-        bottom: "0vh",
-        right: "0",    // Snaps against the right edge
+        xPercent: -50,  // Keep it centered!
+        yPercent: -50,
         x: 0,          
+        y: 0,
         borderRadius: "0px", 
         ease: "power2.inOut",
         duration: 1, 
@@ -130,13 +131,16 @@ export default function ProjectsShowcaseVariant() {
         duration: 0.1,
       });
 
-      // Crush the box back down into a tiny oval, floating mid-right
+      // Crush the box back down into a tiny oval, floating in the center
       tl.to(containerRef.current, {
-        width: "300px",
-        height: "150px",
-        bottom: "calc(100vh - 250px)", 
-        right: "15vw",                 // Anchor right side
-        x: "50%",                      // Translate to center it around the anchor
+        width: "250px",
+        height: "100px",
+        top: "50%", 
+        left: "50%",                 
+        xPercent: -50,
+        yPercent: -50,
+        x: 0,
+        y: 0,
         borderRadius: "100px",         
         ease: "power2.inOut",
         duration: 1, 
@@ -155,12 +159,9 @@ export default function ProjectsShowcaseVariant() {
     >
       
       {/* Background Section Title (Visible behind the small pill) */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-[#0c0d0c] px-4 text-center pb-32">
+      <div className="absolute inset-0 flex flex-col items-center justify-start pointer-events-none text-[#0c0d0c] px-4 text-center pt-32">
          <span className="font-mono text-xs tracking-[0.3em] uppercase opacity-50 mb-4">Selected Works</span>
          <h2 className="font-serif text-5xl md:text-7xl font-medium tracking-tighter">Featured Projects</h2>
-         {/* <p className="font-sans text-sm md:text-base opacity-70 mt-6 max-w-lg mx-auto">
-            Scroll down to unpack the high-performance architectural networks built by NLLP worldwide.
-         </p> */}
       </div>
 
       {/* 
@@ -169,14 +170,13 @@ export default function ProjectsShowcaseVariant() {
       */}
       <div 
         ref={containerRef}
-        className="absolute bottom-[10vh] overflow-hidden bg-[#0c0d0c] will-change-transform shadow-[30px_0_50px_rgba(0,0,0,0.5)] border-l border-[#0c0d0c]/10 z-10"
-        // Starts as a tiny pill bottom-right
+        className="absolute top-1/2 left-1/2 overflow-hidden bg-[#0c0d0c] will-change-transform shadow-[30px_0_50px_rgba(0,0,0,0.5)] border-[#0c0d0c]/10 z-10"
+        // Starts as a tiny pill in the center
         style={{
           width: "250px", 
           height: "100px", 
           borderRadius: "100px",
-          right: "25%", 
-          transform: "translateX(50%)" 
+          transform: "translate(-50%, -50%)" 
         }}
       >
           {/* THE INTERNAL TRACK */}
