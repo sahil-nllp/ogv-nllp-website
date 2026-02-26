@@ -25,10 +25,10 @@ interface MapNode {
 const HQ_COORDINATES: [number, number] = [151.2093, -33.8688]; // Sydney
 
 const nodes: MapNode[] = [
-  { id: "nz", city: "Auckland", country: "New Zealand", coordinates: [174.7633, -36.8485], metricTitle: "Data Processed", metricValue: "42 PB/s" },
-  { id: "in", city: "Mumbai", country: "India", coordinates: [72.8777, 19.0760], metricTitle: "Latency", metricValue: "<4ms" },
-  { id: "ae", city: "Dubai", country: "UAE", coordinates: [55.2708, 25.2048], metricTitle: "Uptime", metricValue: "99.999%" },
-  { id: "uk", city: "London", country: "UK", coordinates: [-0.1276, 51.5072], metricTitle: "Redundancy", metricValue: "Tier IV" }
+  { id: "nz", city: "Auckland", country: "New Zealand", coordinates: [174.7633, -36.8485], metricTitle: "Projects Delivered", metricValue: "42+" },
+  { id: "in", city: "Mumbai", country: "India", coordinates: [72.8777, 19.0760], metricTitle: "Consultants", metricValue: "150+" },
+  { id: "ae", city: "Dubai", country: "UAE", coordinates: [55.2708, 25.2048], metricTitle: "Success Rate", metricValue: "100%" },
+  { id: "uk", city: "London", country: "UK", coordinates: [-0.1276, 51.5072], metricTitle: "Facilities", metricValue: "24" }
 ];
 
 const hqNode: MapNode = { 
@@ -36,7 +36,7 @@ const hqNode: MapNode = {
   city: 'Sydney', 
   country: 'Australia', 
   coordinates: HQ_COORDINATES, 
-  metricTitle: "Core Routing", 
+  metricTitle: "Global Headquarters", 
   metricValue: "Active" 
 };
 
@@ -119,19 +119,19 @@ export default function GlobalImpactMap() {
         <div>
           <span className="font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#e1e3de]/60 flex items-center gap-4 mb-6">
             <span className="w-8 h-[1px] bg-[#e1e3de]/60" />
-            Active Infrastructure
+            Global Reach
           </span>
           <h3 className="font-serif text-4xl md:text-6xl text-[#e1e3de] tracking-tighter leading-[1.1]">
-            <span className="italic font-light opacity-90">Deployed</span> <br />
-            ecosystems.
+            <span className="italic font-light opacity-90">Global</span> <br />
+            Operations.
           </h3>
         </div>
         <div className="max-w-xs text-right">
           <p className="font-sans text-xs md:text-sm text-[#e1e3de]/60 leading-relaxed mb-4">
-            Our autonomous network nodes operate at the edge, ensuring zero-latency communication across continents.
+            Our healthcare infrastructure projects span across continents, delivering excellence worldwide.
           </p>
           <p className="font-mono text-[9px] uppercase tracking-widest text-[#fdf5cc]/60 animate-pulse">
-            [ Interactive: Rotate to inspect nodes ]
+            [ Interactive: Rotate to explore locations ]
           </p>
         </div>
       </div>
@@ -158,7 +158,7 @@ export default function GlobalImpactMap() {
                 </p>
               </div>
               <h4 className="font-serif italic text-2xl text-[#e1e3de] mb-4 leading-none">
-                {hoveredNode.id === 'hq' ? 'Central Hub' : 'Node Active'}
+                {hoveredNode.id === 'hq' ? 'Headquarters' : 'Active Location'}
               </h4>
               
               <div className="w-full h-[1px] bg-gradient-to-r from-[#e1e3de]/20 to-transparent mb-4" />

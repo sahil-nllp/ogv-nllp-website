@@ -55,7 +55,7 @@ export default function Header() {
         {/* Right Action */}
         <div className="flex-shrink-0 z-20">
           <Link 
-            href="#contact"
+            href="/contact"
             className="flex items-center justify-center text-[10px] uppercase tracking-[0.2em] text-[#0c0d0c] group-[.theme-light]/header:text-[#e1e3de] bg-[#e1e3de] group-[.theme-light]/header:bg-[#0c0d0c] font-bold rounded-full hover:scale-105 active:scale-95 transition-all duration-700 px-6 py-2.5 md:px-8 md:py-3.5"
             style={{ letterSpacing: '0.2em' }} // letter spacing forces right gap
           >

@@ -8,21 +8,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "Project Alpha",
-    subtitle: "GENESIS NODE",
-    description: "The foundational deployment of the OGV architecture. A completely self-contained ecosystem designed for maximum redundancy and data integrity.",
+    title: "St. Jude Medical",
+    subtitle: "FACILITY DEVELOPMENT",
+    description: "A state-of-the-art healthcare facility designed for maximum patient care, operational efficiency, and clinical integration.",
     image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop", 
   },
   {
-    title: "Project Delta",
-    subtitle: "SYSTEMS HUB",
-    description: "Centralized processing node. Delta handles the massive influx of clinical data, routing it intelligently across the global network in real-time.",
+    title: "Metro Health Center",
+    subtitle: "OPERATIONAL STRATEGY",
+    description: "A centralized healthcare hub optimizing clinical workflows and patient management across the broader metropolitan area.",
     image: "https://images.unsplash.com/photo-1481026469463-66327c86e544?q=80&w=1816&auto=format&fit=crop", 
   },
   {
-    title: "Project Nexus",
-    subtitle: "GLOBAL MASTER",
-    description: "The crown jewel of the NLLP deployment. Nexus sits at the intersection of architecture and pure data flow, serving as the master control unit.",
+    title: "Global Care Network",
+    subtitle: "INFRASTRUCTURE PLANNING",
+    description: "A comprehensive infrastructure planning project integrating multiple care facilities into a cohesive healthcare network.",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", 
   },
 ];

@@ -116,7 +116,7 @@ export default function CtaRevealFooterVariant() {
                <span className="italic opacity-90">at scale.</span>
             </h2>
             
-             <Link href="#contact" className="flex items-center gap-4 px-6 py-3 border border-[#0c0d0c]/30 rounded-full font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] hover:bg-[#0c0d0c] hover:text-[#e1e3de] transition-all duration-500 pointer-events-auto mt-4">
+             <Link href="/contact" className="flex items-center gap-4 px-6 py-3 border border-[#0c0d0c]/30 rounded-full font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] hover:bg-[#0c0d0c] hover:text-[#e1e3de] transition-all duration-500 pointer-events-auto mt-4">
                 Write to us, we reply quickly <span className="text-lg leading-none">→</span>
              </Link>
           </div>

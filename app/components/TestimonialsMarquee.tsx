@@ -5,34 +5,34 @@ import { gsap } from 'gsap';
 
 const testimonials = [
   {
-    quote: "The deployment of the Nexus node completely re-architected our data pipeline. Unprecedented latency reduction.",
+    quote: "OGV/NLLP completely transformed our healthcare infrastructure. Their strategic planning led to unprecedented operational efficiency.",
     author: "Dr. Sarah Chen",
-    role: "Chief Architect, Global Health Initiative",
-    company: "GHI",
+    role: "Chief Medical Officer",
+    company: "Global Health Initiative",
   },
   {
-    quote: "OGV/NLLP didn't just build a system; they engineered a living, breathing ecosystem that scales effortlessly.",
+    quote: "OGV/NLLP didn't just design a facility; they created an environment that truly supports proactive patient care and scales effortlessly.",
     author: "Marcus Vance",
     role: "Director of Infrastructure",
-    company: "Vance Aerospace",
+    company: "Vance Healthcare Systems",
   },
   {
-    quote: "Their approach to decentralized network routing is years ahead of the industry standard. Flawless execution.",
+    quote: "Their approach to healthcare consulting is years ahead of the industry standard. Flawless execution from planning to completion.",
     author: "Elena Rostova",
-    role: "Lead Systems Engineer",
-    company: "Stark Logistics",
+    role: "Lead Operations Director",
+    company: "Stark Medical Group",
   },
   {
-    quote: "The Genesis Node implementation allowed us to process real-time clinical data at a volume we thought impossible.",
+    quote: "The new facility design allowed us to manage patient flow and clinical integration at a volume we previously thought impossible.",
     author: "James Holden",
-    role: "VP of Data Engineering",
-    company: "Tycho Station Corp",
+    role: "VP of Facility Planning",
+    company: "Tycho Regional Hospital",
   },
   {
-    quote: "Masterful architecture. Every structural decision they made anticipated our scaling problems before they happened.",
+    quote: "Masterful planning. Every strategic decision they made anticipated our future capacity needs before they became issues.",
     author: "Aida Turing",
-    role: "CTO",
-    company: "Aether AI",
+    role: "Chief Operating Officer",
+    company: "Aether Health",
   }
 ];
 

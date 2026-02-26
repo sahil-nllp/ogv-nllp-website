@@ -66,7 +66,7 @@ const nodes = [
   },
   {
     id: "04",
-    title: "System Execution",
+    title: "Project Delivery",
     description: "Going live. We manage the delicate transition from construction and staging to active patient care, ensuring zero downtime and immediate regulatory compliance.",
     size: "col-span-1 md:col-span-2 row-span-1 min-h-[300px] md:min-h-[350px]",
     icon: (
@@ -158,12 +158,12 @@ export default function OperationalNodes() {
               <div className="w-12 h-[1px] bg-stone-700" />
             </div> */}
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#e1e3de] tracking-tight">
-              Operational Nodes
+              Core Capabilities
             </h2>
           </div>
           
           <p className="max-w-md text-stone-400 text-sm md:text-base leading-relaxed text-balance">
-            We don't just draft blueprints; we build the machine. Our core competencies span the entire lifecycle of healthcare infrastructure development.
+            We don't just draft blueprints; we build the facility. Our core competencies span the entire lifecycle of healthcare infrastructure development.
           </p>
         </div>
 

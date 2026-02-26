@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ export default function Hero() {
   const hospitalRef = useRef<HTMLDivElement>(null);
   const topTextRef = useRef<HTMLDivElement>(null);
   const bottomTextRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,7 +30,7 @@ export default function Hero() {
       });
 
       // Scale the outer wrapper of the image so the whole block gets bigger
-      gsap.to(imageRef.current, {
+      gsap.to([imageRef.current, ctaRef.current], {
         scale: 1.5,
         ease: 'none',
         scrollTrigger: {
@@ -38,6 +40,25 @@ export default function Hero() {
           scrub: true,
         },
       });
+
+      // Fade in the CTA over the lower part of the image as you scroll down
+      // Initial scale is 0.95 so it "pops" in slightly as it fades 
+      // (The above uniform scaling timeline handles its base 1 to 1.5 trajectory)
+      gsap.fromTo(ctaRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          pointerEvents: 'auto',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top -5%',      // Wait until scrolled down 5%
+            end: 'top -20%',       // Fully visible quickly
+            scrub: true,
+          }
+        }
+      );
 
       // Scrubbed scroll animation - text physically slides in from the right based on scroll depth
       gsap.fromTo(topTextRef.current,
@@ -115,21 +136,48 @@ export default function Hero() {
         className="absolute top-0 left-0 h-screen w-full md:w-1/2 flex items-center z-0 pointer-events-none"
         style={{ paddingLeft: 'clamp(2.5rem, 15vw, 12rem)' }}
       >
-        <div 
-          ref={imageRef} 
-          className="w-[28vw] h-[58vh] flex-shrink-0 pointer-events-auto origin-center"
-          style={{ willChange: 'transform' }}
-        >
-          <div className="relative w-full h-full overflow-hidden">
-            <div className="absolute inset-0 w-full h-full">
-              <Image
-                src="/assets/hero-ogv.jpg"
-                alt="Healthcare infrastructure"
-                fill
-                className="object-cover object-center"
-                priority
-              />
+        <div className="relative flex items-center justify-center pointer-events-auto">
+          {/* Main Image Base */}
+          <div 
+            ref={imageRef} 
+            className="w-[28vw] h-[58vh] flex-shrink-0 origin-center"
+            style={{ willChange: 'transform' }}
+          >
+            <div className="relative w-full h-full overflow-hidden">
+              <div className="absolute inset-0 w-full h-full">
+                <Image
+                  src="/assets/hero-ogv.jpg"
+                  alt="Healthcare infrastructure"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
             </div>
+          </div>
+
+          {/* New Overlay CTA Button Wrapper (Isolates GSAP animation from CSS hover delays) */}
+          <div ref={ctaRef} className="absolute bottom-[10%] z-20 opacity-0 pointer-events-none origin-center" style={{ willChange: 'transform' }}>
+            <Link 
+              href="/contact"
+              className="flex items-center justify-center gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full overflow-hidden border border-white/20 bg-black/40 backdrop-blur-md transition-all duration-500 hover:bg-black/60 hover:border-white/40 hover:scale-[1.05] group pointer-events-auto"
+            >
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              
+              <span className="relative z-10 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-[#e1e3de]">
+                Connect with us
+              </span>
+              
+              <svg 
+                className="relative z-10 w-3 md:w-4 h-3 md:h-4 text-[#e1e3de] -rotate-45 transition-transform duration-500 group-hover:rotate-0 group-hover:translate-x-1" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                strokeWidth={1.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>

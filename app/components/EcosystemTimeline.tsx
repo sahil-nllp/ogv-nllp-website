@@ -9,9 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 const timelineSteps = [
   {
     id: "01",
-    phase: "Genesis",
+    phase: "Strategy",
     title: "Strategic Blueprinting",
-    description: "Every ecosystem begins as a conceptual node. We map out clinical pathways, financial viability, and regulatory topography long before ground is broken.",
+    description: "Every infrastructure project begins as an initial concept. We map out clinical pathways, financial viability, and regulatory topography long before ground is broken.",
     graphic: (
       <div className="relative w-full h-full flex items-center justify-center">
         {/* Mapping Grid */}
@@ -63,7 +63,7 @@ const timelineSteps = [
   {
     id: "03",
     phase: "Deployment",
-    title: "Operational Vanguard",
+    title: "Active Deployment",
     description: "The theoretical blueprint transitions into a pulsing, breathing medical environment under our direct oversight.",
     graphic: (
       <div className="relative w-full h-full flex items-center justify-center">
@@ -98,7 +98,7 @@ const timelineSteps = [
   {
     id: "04",
     phase: "Sustenance",
-    title: "The Living Ecosystem",
+    title: "Ongoing Operations",
     description: "We ensure continuous compliance, scaling efficiency, and lifecycle management for the modern care institution.",
     graphic: (
       <div className="relative w-full h-full flex items-center justify-center">
@@ -176,7 +176,7 @@ export default function EcosystemTimeline() {
               <div className="w-12 h-[1px] bg-stone-700" />
             </div> */}
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#e1e3de] tracking-tight">
-              Ecosystem Lifecycle
+              Project Lifecycle
             </h2>
           </div>
           
