@@ -7,8 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import clsx from 'clsx';
 
 // Dynamically import react-globe.gl to prevent SSR issues with WebGL/Three.js
-// By casting the default export to any, we bypass IntrinsicAttributes TypeScript errors for missing types
-const Globe = dynamic(() => import('react-globe.gl').then((mod) => mod.default as any), { ssr: false });
+// By casting the default export and the dynamic return to any, we bypass IntrinsicAttributes TypeScript errors for missing types
+const Globe = dynamic(() => import('react-globe.gl').then((mod) => mod.default as any), { ssr: false }) as any;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -177,7 +177,7 @@ export default function GlobalImpactMap() {
         <div ref={containerRef} className="relative w-full aspect-square md:aspect-[2/1] cursor-grab active:cursor-grabbing">
           {dimensions.width > 0 && typeof window !== 'undefined' && (
             <Globe
-              ref={globeRef}
+              {...({ ref: globeRef } as any)}
               width={dimensions.width}
               height={dimensions.height}
               
