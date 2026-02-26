@@ -3,6 +3,7 @@ import OperationalNodes from "./components/OperationalNodes";
 import EcosystemTimeline from "./components/EcosystemTimeline";
 import CompanyJourney from "./components/CompanyJourney";
 import ProjectsShowcaseVariant from "./components/ProjectsShowcaseVariant";
+import GlobalImpactMap from "./components/GlobalImpactMap";
 import TestimonialsMarquee from "./components/TestimonialsMarquee";
 import CtaRevealFooterVariant from "./components/CtaRevealFooterVariant";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <EcosystemTimeline />
       <CompanyJourney  />
       <ProjectsShowcaseVariant />
+      <GlobalImpactMap />
       <TestimonialsMarquee />
       <CtaRevealFooterVariant />
     </main>

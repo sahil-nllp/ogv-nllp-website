@@ -177,4 +177,9 @@ body::-webkit-scrollbar {
   body {
     @apply bg-background text-foreground;
   }
+
+  .map-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
 }

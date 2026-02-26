@@ -65,7 +65,7 @@ export default function TestimonialsMarquee() {
   }, []);
 
   return (
-    <section className="relative w-full py-32 bg-[#0c0d0c] overflow-hidden border-t border-[#e1e3de]/5">
+    <section className="relative w-full py-32 overflow-hidden">
       
       <div className="container mx-auto px-4 md:px-8 mb-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
