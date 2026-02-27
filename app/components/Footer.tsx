@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -61,15 +61,22 @@ export default function Footer() {
               This text is styled to grow dramatically. 
               vw units ensure it tries to take up maximum horizontal space 
             */}
-            <Link
+            {/* <Link
               href="/contact"
-              className="pointer-events-auto font-serif font-medium tracking-tighter text-[#e1e3de] whitespace-nowrap will-change-transform"
+              className="font-serif font-medium tracking-tighter text-[#e1e3de] whitespace-nowrap will-change-transform"
               style={{ fontSize: "clamp(4rem, 20vw, 25rem)" }}
             >
               <h2 ref={engageTextRef} className="inline">
                 ENGAGE
               </h2>
-            </Link>
+            </Link> */}
+            <h2 
+              ref={engageTextRef}
+              className="font-serif font-medium tracking-tighter text-[#e1e3de] whitespace-nowrap will-change-transform"
+              style={{ fontSize: "clamp(4rem, 20vw, 25rem)" }}
+            >
+              ENGAGE
+              </h2>
          </div>
       </div>
 
