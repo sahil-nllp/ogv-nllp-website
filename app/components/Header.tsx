@@ -37,7 +37,7 @@ export default function Header() {
           {['Expertise', 'Projects', 'Studio', 'Insights'].map((link) => (
             <Link
               key={link}
-              href={`#${link.toLowerCase()}`}
+              href={link === 'Insights' ? '/insights' : `/#${link.toLowerCase()}`}
               className="group relative flex items-center justify-center text-[10px] uppercase tracking-[0.2em] text-stone-400 group-[.theme-light]/header:text-stone-600 font-medium transition-colors hover:text-[#e1e3de] group-[.theme-light]/header:hover:text-[#0c0d0c] duration-700"
             >
               {/* Glass Droplet Hover Background */}
