@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import CtaRevealFooterVariant from '../components/CtaRevealFooterVariant';
+import Footer from '../components/Footer';
 
 export default function ContactPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,18 +35,16 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <main ref={containerRef} className="relative bg-[#0c0d0c] min-h-screen text-[#e1e3de] overflow-hidden pt-32 pb-16 flex flex-col">
+    <main ref={containerRef} className="relative bg-[#0c0d0c] min-h-screen text-[#e1e3de] overflow-hidden pt-32 pb-4 flex flex-col items-center">
       
       {/* Background Ambient Glows */}
       <div className="absolute top-0 right-0 w-[80vw] h-[80vw] -translate-y-1/2 translate-x-1/3 rounded-full bg-[#fdf5cc]/[0.02] blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] translate-y-1/2 -translate-x-1/2 rounded-full bg-[#e1e3de]/[0.02] blur-[100px] pointer-events-none" />
 
       {/* Main Content Grid */}
-      <section className="flex-grow container max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-24 relative z-10 flex flex-col justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          {/* Left Column - Monumental Text & Context */}
-          <div ref={leftColRef} className="flex flex-col justify-center mx-auto max-w-lg relative w-full pt-8 lg:pt-0">
+<section className="flex-grow w-full max-w-6xl mx-auto px-6 md:px-8 py-12 md:py-24 relative z-10 flex flex-col justify-center">        
+<div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">          {/* Left Column - Monumental Text & Context */}
+          <div ref={leftColRef} className="flex flex-col justify-center max-w-lg relative w-full pt-8 lg:pt-0">
             
             {/* Abstract Cross Decorator */}
              <div className="w-10 h-10 relative flex items-center justify-center opacity-40 mb-16 animate-[spin_20s_linear_infinite]">
@@ -196,7 +194,7 @@ export default function ContactPage() {
 
       {/* Reusing Global Footer layout */}
       <div className="relative z-20 w-full mt-auto">
-         <CtaRevealFooterVariant />
+         <Footer />
       </div>
 
     </main>

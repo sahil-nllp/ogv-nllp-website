@@ -45,14 +45,14 @@ export default function Footer() {
   return (
     <footer 
       ref={footerRef}
-      className="relative w-full min-h-screen bg-[#0c0d0c] flex flex-col justify-end pt-32 pb-8 overflow-hidden z-20"
+      className="relative w-full min-h-screen bg-[#0c0d0c] flex flex-col justify-end pt-32 pb-0 overflow-hidden z-20"
     >
       {/* 
         TOP SECTION: The Massive CTA 
       */}
       <div className="flex-1 flex flex-col items-center justify-center w-full px-4 mb-20 pointer-events-none">
          <p className="font-mono text-xs md:text-sm text-[#e1e3de]/50 tracking-[0.5em] uppercase mb-8">
-            Ready to initialize?
+            Ready to talk?
          </p>
          
          <div className="w-full flex justify-center items-center overflow-hidden leading-none">
@@ -79,15 +79,15 @@ export default function Footer() {
           {/* Column 1: Newsletter / Comms */}
           <div className="md:col-span-2 flex flex-col justify-between">
              <div>
-               <h3 className="font-serif text-2xl text-[#e1e3de] mb-4">Enter the Network.</h3>
-               <p className="font-sans text-sm text-[#e1e3de]/50 max-w-sm mb-8 font-light">
-                 Receive low-frequency, high-signal intelligence updates on global deployments and architectural shifts.
+               <h3 className="font-serif text-2xl text-[#e1e3de] mb-4">Stay updated.</h3>
+               <p className="font-sans text-sm text-[#e1e3de]/50 max-w-sm mb-12 font-light">
+                 Receive updates on healthcare infrastructure strategy and global facility deployments.
                </p>
                
                <div ref={formRef} className="relative max-w-md flex items-center group">
                  <input 
                    type="email" 
-                   placeholder="ENTER SECURE COMMS (EMAIL)" 
+                   placeholder="ENTER EMAIL ADDRESS" 
                    className="w-full bg-transparent border-b border-[#e1e3de]/20 pb-4 text-sm text-[#e1e3de] font-mono tracking-widest placeholder:text-[#e1e3de]/20 focus:outline-none focus:border-[#e1e3de] transition-colors"
                  />
                  <button className="absolute right-0 bottom-4 text-[#e1e3de]/50 hover:text-[#e1e3de] transition-colors pointer-events-auto">
@@ -102,17 +102,17 @@ export default function Footer() {
           {/* Column 2: Global Nodes (Locations) */}
           <div className="flex flex-col gap-8">
              <div>
-                <h4 className="font-mono text-[10px] text-[#e1e3de]/50 uppercase tracking-[0.2em] mb-4">Primary Node</h4>
+                <h4 className="font-mono text-[10px] text-[#e1e3de]/50 uppercase tracking-[0.2em] mb-4">Global Headquarters</h4>
                 <p className="font-sans text-sm text-[#e1e3de] font-light leading-relaxed">
-                  100 Architectural Way<br />
-                  Sector 7G, NY 10001<br />
-                  United States
+                  Level 32, 1 Farrer Place<br />
+                  Sydney NSW 2000<br />
+                  Australia
                 </p>
              </div>
              <div>
-                <h4 className="font-mono text-[10px] text-[#e1e3de]/50 uppercase tracking-[0.2em] mb-4">European Hub</h4>
+                <h4 className="font-mono text-[10px] text-[#e1e3de]/50 uppercase tracking-[0.2em] mb-4">European Office</h4>
                 <p className="font-sans text-sm text-[#e1e3de] font-light leading-relaxed">
-                  42 Data Stream Blvd<br />
+                  42 Healthcare Way<br />
                   London, UK E1 6AN
                 </p>
              </div>
@@ -138,8 +138,8 @@ export default function Footer() {
                <span className="font-mono text-[10px] text-[#e1e3de]/30 tracking-widest uppercase">
                  © 2026 OGV/NLLP
                </span>
-               <span className="font-mono text-[10px] text-[#e1e3de]/30 tracking-widest uppercase">
-                 All Systems Nominal
+               <span className="font-mono text-[10px] text-[#e1e3de]/30 tracking-widest uppercase text-right">
+                 Healthcare Infrastructure<br className="md:hidden" /> & Operations
                </span>
              </div>
           </div>
