@@ -89,6 +89,22 @@
 
 
 
+/* Custom cursor (Figma-style): hide default when active */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Cursor theme: light (default on dark bg) vs dark (on light sections) */
+.custom-cursor-dot[data-theme="light"] .custom-cursor-svg {
+  color: #e1e3de;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.4));
+}
+.custom-cursor-dot[data-theme="dark"] .custom-cursor-svg {
+  color: #0c0d0c;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.6));
+}
+
 html {
   overflow-x: clip;
   scrollbar-width: none !important;

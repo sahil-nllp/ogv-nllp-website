@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 import Header from "./components/Header";
+import CustomCursor from "./components/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${britney.variable} antialiased selection:bg-stone-800 selection:text-white`}
       >
+        <CustomCursor />
         <Header />
         <SmoothScroll>{children}</SmoothScroll>
       </body>

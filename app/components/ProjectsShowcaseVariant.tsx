@@ -154,8 +154,9 @@ export default function ProjectsShowcaseVariant() {
   return (
     <section 
       ref={sectionRef} 
+      data-cursor-dark
       className="relative w-full h-screen bg-[#e1e3de] overflow-hidden" 
-      // Reversed bg color to pure white so the dark pill expanding is extremely stark and noticeable!
+      // Reversed bg color so the dark pill expanding is stark; cursor turns dark here for contrast
     >
       
       {/* Background Section Title (Visible behind the small pill) */}

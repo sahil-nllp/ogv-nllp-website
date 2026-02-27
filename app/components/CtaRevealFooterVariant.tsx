@@ -104,6 +104,7 @@ export default function CtaRevealFooterVariant() {
       {/* CTA CURTAIN SECTION */}
       <section 
         ref={sectionRef} 
+        data-cursor-dark
         className="has-light-bg relative w-full h-screen bg-[#e1e3de] text-[#0c0d0c] overflow-hidden z-20"
       >
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
