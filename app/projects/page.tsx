@@ -30,7 +30,20 @@ Page.displayName = 'Page';
 
 export default function MagazinePortfolio() {
   const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 });
+  const [currentPage, setCurrentPage] = useState(0);
   const bookRef = useRef<any>(null);
+
+  const onPageFlip = (e: any) => {
+    setCurrentPage(e.data);
+  };
+
+  const onBookInit = (e: any) => {
+    // Sync initial state
+    const pageFlip = bookRef.current?.pageFlip();
+    if (pageFlip) {
+      setCurrentPage(pageFlip.getCurrentPageIndex());
+    }
+  };
 
   // Handle client-side resizing for the flipbook
   useEffect(() => {
@@ -80,21 +93,38 @@ export default function MagazinePortfolio() {
       {/* Magazine Container */}
       <div className="flex-grow flex items-center justify-center w-full px-0 md:px-8 pt-40 pb-20 relative z-20">
         
-        {/* @ts-ignore - The types for react-pageflip are famously incomplete but the library works flawlessly */}
-        <HTMLFlipBook 
-          width={bookWidth} 
-          height={bookHeight} 
-          size="fixed"
-          minWidth={300}
-          maxWidth={1000}
-          minHeight={400}
-          maxHeight={1200}
-          maxShadowOpacity={0.5}
-          showCover={true}
-          mobileScrollSupport={true}
-          className="mx-auto"
-          ref={bookRef}
+        {/* Transition wrapper to center the cover/back-cover (shifting by 25% of the total 2-page width) */}
+        <div 
+          className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform"
+          style={{ 
+            width: isMobile ? '100%' : `${bookWidth * 2}px`,
+            transform: !isMobile 
+              ? (currentPage === 0 
+                  ? 'translateX(-25%)' 
+                  : (currentPage === projectsData.length * 2 + 1 
+                      ? 'translateX(25%)' 
+                      : 'translateX(0px)')
+                ) 
+              : 'translateX(0px)'
+          }}
         >
+          {/* @ts-ignore - The types for react-pageflip are famously incomplete but the library works flawlessly */}
+          <HTMLFlipBook 
+            width={bookWidth} 
+            height={bookHeight} 
+            size="fixed"
+            minWidth={300}
+            maxWidth={1000}
+            minHeight={400}
+            maxHeight={1200}
+            maxShadowOpacity={0.5}
+            showCover={true}
+            mobileScrollSupport={true}
+            onFlip={onPageFlip}
+            onInit={onBookInit}
+            className="mx-auto"
+            ref={bookRef}
+          >
           {/* COVER PAGE */}
           <Page number={1}>
             <div className="w-full h-full flex flex-col justify-between p-12 md:p-24 bg-gradient-to-br from-[#111211] to-[#0c0d0c]">
@@ -219,6 +249,7 @@ export default function MagazinePortfolio() {
           </Page>
 
         </HTMLFlipBook>
+        </div>
       </div>
 
     </main>
