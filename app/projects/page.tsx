@@ -13,7 +13,7 @@ import Footer from '../components/Footer';
 const Page = React.forwardRef<HTMLDivElement, { children: React.ReactNode; number: number; className?: string }>(
   (props, ref) => {
     return (
-      <div className="demoPage bg-[#0c0d0c] h-full w-full overflow-hidden shadow-[inset_0_0_50px_rgba(0,0,0,0.8)] border border-[#e1e3de]/5" ref={ref}>
+      <div className="demoPage bg-[#0c0d0c] h-full w-full overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-[#e1e3de]/5" ref={ref}>
         <div className={`w-full h-full relative ${props.className || ''}`}>
           {props.children}
           
@@ -44,8 +44,21 @@ export default function MagazinePortfolio() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Header Theme Toggle
+  useEffect(() => {
+    const header = document.getElementById('main-header');
+    if (header) {
+      header.classList.add('theme-light');
+    }
+    return () => {
+      if (header) {
+        header.classList.remove('theme-light');
+      }
+    };
+  }, []);
+
   // Wait for client mount to avoid hydration mismatch with dimensions
-  if (windowDimensions.width === 0) return <div className="min-h-screen bg-[#0c0d0c]" />;
+  if (windowDimensions.width === 0) return <div className="min-h-screen bg-[#f4f5f0]" />;
 
   // Calculate book dimensions based on screen size (Max width 1400px, aspect ratio ~1:1.3 per page)
   const isMobile = windowDimensions.width < 768;
@@ -53,15 +66,15 @@ export default function MagazinePortfolio() {
   const bookHeight = isMobile ? windowDimensions.height - 100 : Math.min(windowDimensions.height * 0.85, 900);
 
   return (
-    <main className="relative bg-[#0c0d0c] min-h-screen text-[#e1e3de] overflow-hidden flex flex-col justify-between">
+    <main className="relative bg-[#f4f5f0] min-h-screen text-[#0c0d0c] overflow-hidden flex flex-col justify-between">
       
       {/* Absolute Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] rounded-full bg-[#fdf5cc]/[0.015] blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] rounded-full bg-[#0c0d0c]/[0.015] blur-[150px] pointer-events-none" />
 
       {/* Navigation Hint */}
       <div className="absolute top-32 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col items-center gap-2 opacity-50">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Drag to Turn</span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-[#e1e3de] to-transparent" />
+        <div className="w-[1px] h-8 bg-gradient-to-b from-[#0c0d0c] to-transparent" />
       </div>
 
       {/* Magazine Container */}
@@ -79,7 +92,7 @@ export default function MagazinePortfolio() {
           maxShadowOpacity={0.5}
           showCover={true}
           mobileScrollSupport={true}
-          className="mx-auto shadow-2xl"
+          className="mx-auto"
           ref={bookRef}
         >
           {/* COVER PAGE */}
