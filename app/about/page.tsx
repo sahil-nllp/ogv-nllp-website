@@ -95,7 +95,7 @@ export default function AboutPage() {
           trigger: teamRef.current,
           start: 'top 80px', // When the section reaches the header
           end: 'bottom top', // Stop when the section scrolls off the top
-          toggleClass: { targets: '#main-header', className: 'theme-dark-pill' },
+          toggleClass: { targets: '#main-header', className: 'theme-light' },
         });
       }
 
