@@ -241,8 +241,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. THE TEAM ROSTER */}
-      <section ref={teamRef} className="w-full bg-[#e1e3de] text-[#0c0d0c] py-32 px-6 md:px-12 lg:px-24">
+      {/* 4. THE TEAM ROSTER — light bg: cursor switches to dark variant via data-cursor-dark */}
+      <section ref={teamRef} data-cursor-dark className="w-full bg-[#e1e3de] text-[#0c0d0c] py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto border-t border-[#0c0d0c]/10 pt-32">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20 overflow-hidden">
