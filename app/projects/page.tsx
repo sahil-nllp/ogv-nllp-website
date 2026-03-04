@@ -137,7 +137,7 @@ export default function MagazinePortfolio() {
                  <h1 className="font-serif text-6xl md:text-8xl tracking-tighter leading-[0.9] text-[#e1e3de] mb-6">
                    Deployed <br/> <span className="italic font-light text-[#e1e3de]/70">Ventures.</span>
                  </h1>
-                 <p className="font-sans text-sm md:text-base text-[#e1e3de]/50 font-light max-w-sm">
+                 <p className="text-sm md:text-base text-[#e1e3de]/50 font-light max-w-sm">
                    A portfolio of products, telehealth platforms, and deep-tech scaling partnerships.
                  </p>
                </div>
@@ -193,7 +193,7 @@ export default function MagazinePortfolio() {
                     {project.name}
                   </h2>
 
-                  <p className="font-sans text-lg md:text-xl text-[#e1e3de]/80 font-light leading-relaxed mb-12 pb-10 border-b border-[#e1e3de]/10">
+                  <p className="text-lg md:text-xl text-[#e1e3de]/80 font-light leading-relaxed mb-12 pb-10 border-b border-[#e1e3de]/10">
                     {project.outcome}
                   </p>
 
@@ -205,7 +205,7 @@ export default function MagazinePortfolio() {
                     </h3>
                     <ul className="space-y-3">
                       {project.scope.map((item, i) => (
-                        <li key={i} className="flex items-start gap-4 font-sans text-sm md:text-[15px] text-[#e1e3de]/60 font-light">
+                        <li key={i} className="flex items-start gap-4 text-sm md:text-[15px] text-[#e1e3de]/60 font-light">
                           <span className="mt-1.5 w-1 h-1 rounded-full bg-[#e1e3de]/20 flex-shrink-0" />
                           <span className="leading-snug">{item}</span>
                         </li>

@@ -86,7 +86,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     {article.title}
                   </h1>
                   
-                  <p className="font-sans text-xl md:text-2xl text-[#e1e3de]/60 font-light leading-relaxed split-excerpt">
+                  <p className="text-xl md:text-2xl text-[#e1e3de]/60 font-light leading-relaxed split-excerpt">
                     {article.excerpt}
                   </p>
                </header>

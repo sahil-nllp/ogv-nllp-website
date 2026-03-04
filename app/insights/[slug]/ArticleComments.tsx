@@ -132,7 +132,7 @@ export default function ArticleComments() {
                  <span className="hidden md:block w-1 h-1 rounded-full bg-[#e1e3de]/30" />
                  <span className="font-mono text-[10px] text-emerald-400 uppercase tracking-widest">{comment.role}</span>
                  <span className="hidden md:block w-1 h-1 rounded-full bg-[#e1e3de]/30" />
-                 <span className="font-sans text-sm text-[#e1e3de]/40">{comment.date}</span>
+                 <span className="text-sm text-[#e1e3de]/40">{comment.date}</span>
                </div>
                <p className="text-[#e1e3de]/80 leading-relaxed font-light">
                  {comment.content}

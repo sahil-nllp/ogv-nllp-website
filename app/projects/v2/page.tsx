@@ -35,7 +35,7 @@ export default function ProjectsV2Page() {
         <h1 className="font-serif text-6xl md:text-8xl tracking-tight leading-[0.9] text-[#0c0d0c] mb-8">
           Deployed<br/>Ventures
         </h1>
-        <p className="font-sans text-lg md:text-xl text-[#0c0d0c]/60 font-light max-w-2xl leading-relaxed">
+        <p className="text-lg md:text-xl text-[#0c0d0c]/60 font-light max-w-2xl leading-relaxed">
           An interactive archive of products, platforms, and deep-tech scaling partnerships engineered by Ocean Green Ventures.
         </p>
       </div>
@@ -96,7 +96,7 @@ export default function ProjectsV2Page() {
                   {/* Right: Clean Metadata */}
                   <div className="w-full lg:w-1/2 flex flex-col justify-center">
                     
-                    <p className="font-sans text-xl md:text-3xl text-[#0c0d0c]/80 font-light leading-relaxed mb-12">
+                    <p className="text-xl md:text-3xl text-[#0c0d0c]/80 font-light leading-relaxed mb-12">
                       {project.outcome}
                     </p>
 
@@ -109,7 +109,7 @@ export default function ProjectsV2Page() {
                         </h4>
                         <ul className="space-y-3">
                           {project.scope.map((item, i) => (
-                            <li key={i} className="font-sans text-sm text-[#0c0d0c]/70">
+                            <li key={i} className="text-sm text-[#0c0d0c]/70">
                               <span className="text-[#0c0d0c]/30 mr-3">—</span>
                               {item}
                             </li>
@@ -124,7 +124,7 @@ export default function ProjectsV2Page() {
                         </h4>
                         <div className="mb-6">
                           <span className="block font-mono text-[10px] text-[#0c0d0c]/40 uppercase mb-2">Duration</span>
-                          <span className="font-sans text-sm text-[#0c0d0c]/80">{project.duration}</span>
+                          <span className="text-sm text-[#0c0d0c]/80">{project.duration}</span>
                         </div>
                         
                         {project.tools && project.tools.length > 0 && (

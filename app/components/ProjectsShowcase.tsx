@@ -164,7 +164,7 @@ export default function ProjectsShowcase() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0c0d0c] text-[#e1e3de] py-40 overflow-x-hidden cursor-default font-sans">
+    <section ref={containerRef} className="relative w-full bg-[#0c0d0c] text-[#e1e3de] py-40 overflow-x-hidden cursor-default">
       
       {/* Title Header */}
       <div className="w-full text-center z-50 pointer-events-none mb-32">

@@ -90,7 +90,7 @@ export default function Footer() {
           <div className="md:col-span-2 flex flex-col justify-between">
              <div>
                <h3 className="font-serif text-2xl text-[#e1e3de] mb-4">Stay updated.</h3>
-               <p className="font-sans text-sm text-[#e1e3de]/50 max-w-sm mb-12 font-light">
+               <p className="text-sm text-[#e1e3de]/50 max-w-sm mb-12 font-light">
                  Receive updates on healthcare infrastructure strategy and global facility deployments.
                </p>
                
@@ -113,7 +113,7 @@ export default function Footer() {
           <div className="flex flex-col gap-8">
              <div>
                 <h4 className="font-mono text-[10px] text-[#e1e3de]/50 uppercase tracking-[0.2em] mb-4">Global Headquarters</h4>
-                <p className="font-sans text-sm text-[#e1e3de] font-light leading-relaxed">
+                <p className="text-sm text-[#e1e3de] font-light leading-relaxed">
                   Level 32, 1 Farrer Place<br />
                   Sydney NSW 2000<br />
                   Australia
@@ -121,7 +121,7 @@ export default function Footer() {
              </div>
              <div>
                 <h4 className="font-mono text-[10px] text-[#e1e3de]/50 uppercase tracking-[0.2em] mb-4">European Office</h4>
-                <p className="font-sans text-sm text-[#e1e3de] font-light leading-relaxed">
+                <p className="text-sm text-[#e1e3de] font-light leading-relaxed">
                   42 Healthcare Way<br />
                   London, UK E1 6AN
                 </p>

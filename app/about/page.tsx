@@ -140,10 +140,10 @@ export default function AboutPage() {
             <span className="italic font-light opacity-80">Studio.</span>
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-            <p className="font-sans text-xl md:text-2xl font-light text-[#e1e3de]/80 leading-relaxed max-w-2xl">
-              OGV/NLLP is a private, independent product development partner. We focus on building and scaling new ventures through clear, simple, and reliable processes.
+            <p className="text-xl md:text-2xl font-light text-[#e1e3de]/80 leading-relaxed max-w-2xl">
+              <span className="font-noka">OGV/NLLP</span> is a private, independent product development partner. We focus on building and scaling new ventures through clear, simple, and reliable processes.
             </p>
-            <p className="font-sans text-base md:text-lg text-[#e1e3de]/50 font-light leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-[#e1e3de]/50 font-light leading-relaxed max-w-xl">
               By working in focused, 30-day blocks, we offer predictable costs and transparent work, making sure our partners around the world always know what to expect.
             </p>
           </div>
@@ -153,7 +153,7 @@ export default function AboutPage() {
       {/* 2. THE PHILOSOPHY GRID */}
       <section ref={philosophyRef} className="w-full bg-[#111211] border-y border-[#e1e3de]/10 py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
-          <h3 className="font-serif text-3xl md:text-5xl text-[#e1e3de] mb-16 overflow-hidden">
+          <h3 className="font-serif text-3xl md:text-5xl text-[#e1e3de] mb-16 overflow-hidden pb-4">
             <span className="block inline-block">Our Approach</span>
           </h3>
           
@@ -162,7 +162,7 @@ export default function AboutPage() {
             <div className="philosophy-card p-10 border border-[#e1e3de]/10 rounded-3xl bg-[#0c0d0c]/50 hover:bg-[#e1e3de]/[0.02] transition-colors group">
               <span className="font-mono text-emerald-400 text-sm mb-6 block">01</span>
               <h4 className="font-serif text-2xl text-white mb-4 group-hover:-translate-y-1 transition-transform">Clear Options</h4>
-              <p className="font-sans text-[#e1e3de]/60 font-light leading-relaxed">
+              <p className="text-[#e1e3de]/60 font-light leading-relaxed">
                 Everything we do is itemized for you. You select only the exact help you need, keeping the whole process totally transparent.
               </p>
             </div>
@@ -171,7 +171,7 @@ export default function AboutPage() {
             <div className="philosophy-card p-10 border border-[#e1e3de]/10 rounded-3xl bg-[#0c0d0c]/50 hover:bg-[#e1e3de]/[0.02] transition-colors group">
               <span className="font-mono text-emerald-400 text-sm mb-6 block">02</span>
               <h4 className="font-serif text-2xl text-white mb-4 group-hover:-translate-y-1 transition-transform">Focused Cycles</h4>
-              <p className="font-sans text-[#e1e3de]/60 font-light leading-relaxed">
+              <p className="text-[#e1e3de]/60 font-light leading-relaxed">
                 We work in clear, 30-day blocks of focused time. You can adjust your needs or stop at any point without being locked into long contracts.
               </p>
             </div>
@@ -180,7 +180,7 @@ export default function AboutPage() {
             <div className="philosophy-card p-10 border border-[#e1e3de]/10 rounded-3xl bg-[#0c0d0c]/50 hover:bg-[#e1e3de]/[0.02] transition-colors group">
               <span className="font-mono text-emerald-400 text-sm mb-6 block">03</span>
               <h4 className="font-serif text-2xl text-white mb-4 group-hover:-translate-y-1 transition-transform">Full Ownership</h4>
-              <p className="font-sans text-[#e1e3de]/60 font-light leading-relaxed">
+              <p className="text-[#e1e3de]/60 font-light leading-relaxed">
                 The product belongs to you. You receive 100% of all the code, designs, and intellectual property we build for your venture.
               </p>
             </div>
@@ -196,7 +196,7 @@ export default function AboutPage() {
           <div className="lg:w-1/3 services-title">
             <div className="sticky top-32">
               <h3 className="font-serif text-4xl md:text-5xl text-[#e1e3de] mb-6 tracking-tight">What We<br/>Do.</h3>
-              <p className="font-sans text-[#e1e3de]/50 font-light leading-relaxed mb-8">
+              <p className="text-[#e1e3de]/50 font-light leading-relaxed mb-8">
                 We combine deep expertise with steady, reliable work to help bring complex products to life.
               </p>
             </div>
@@ -222,7 +222,7 @@ export default function AboutPage() {
                   </button>
                   
                   <div className={`overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'max-h-[500px] opacity-100 pb-10' : 'max-h-0 opacity-0'}`}>
-                    <p className="font-sans text-lg text-[#e1e3de]/70 font-light leading-relaxed max-w-2xl mb-8">
+                    <p className="text-lg text-[#e1e3de]/70 font-light leading-relaxed max-w-2xl mb-8">
                       {svc.desc}
                     </p>
                     <div className="flex flex-wrap gap-3">
@@ -248,7 +248,7 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20 overflow-hidden">
             <div>
                <h3 className="font-serif text-5xl md:text-6xl text-[#0c0d0c] tracking-tight mb-4">The Team</h3>
-               <p className="font-sans text-xl text-[#0c0d0c]/60 font-light">Our leadership.</p>
+               <p className="text-xl text-[#0c0d0c]/60 font-light">Our leadership.</p>
             </div>
           </div>
 
@@ -270,7 +270,7 @@ export default function AboutPage() {
                   <span className="block font-mono text-[10px] text-emerald-600 uppercase tracking-widest mb-4">
                     {member.role}
                   </span>
-                  <p className="font-sans text-sm text-[#0c0d0c]/70 leading-relaxed font-light">
+                  <p className="text-sm text-[#0c0d0c]/70 leading-relaxed font-light">
                     {member.bio}
                   </p>
                 </div>

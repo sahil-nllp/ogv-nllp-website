@@ -127,7 +127,7 @@ export default function GlobalImpactMap() {
           </h3>
         </div>
         <div className="max-w-xs text-right">
-          <p className="font-sans text-xs md:text-sm text-[#e1e3de]/60 leading-relaxed mb-4">
+          <p className="text-xs md:text-sm text-[#e1e3de]/60 leading-relaxed mb-4">
             Our healthcare infrastructure projects span across continents, delivering excellence worldwide.
           </p>
           <p className="font-mono text-[9px] uppercase tracking-widest text-[#fdf5cc]/60 animate-pulse">
@@ -153,7 +153,7 @@ export default function GlobalImpactMap() {
             <>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-2 h-2 rounded-full bg-[#fdf5cc] animate-pulse shadow-[0_0_10px_#fdf5cc]" />
-                <p className="font-sans text-[10px] uppercase tracking-widest text-[#e1e3de]/60">
+                <p className="text-[10px] uppercase tracking-widest text-[#e1e3de]/60">
                    {hoveredNode.city}, {hoveredNode.country}
                 </p>
               </div>
@@ -166,7 +166,7 @@ export default function GlobalImpactMap() {
               <p className="font-mono text-[9px] uppercase tracking-widest text-[#e1e3de]/40 block mb-1">
                 {hoveredNode.metricTitle}
               </p>
-              <p className="font-sans text-xl text-[#e1e3de] font-light tracking-tight">
+              <p className="text-xl text-[#e1e3de] font-light tracking-tight">
                 {hoveredNode.metricValue}
               </p>
             </>

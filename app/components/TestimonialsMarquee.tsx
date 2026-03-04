@@ -77,7 +77,7 @@ export default function TestimonialsMarquee() {
                  Field Reports.
               </h2>
            </div>
-           <p className="font-sans text-sm text-[#e1e3de]/60 max-w-sm font-light">
+           <p className="text-sm text-[#e1e3de]/60 max-w-sm font-light">
               Direct feedback from the architects and engineers operating our deployed ecosystems worldwide.
            </p>
         </div>
@@ -121,7 +121,7 @@ export default function TestimonialsMarquee() {
                     <p className="font-mono text-xs text-[#e1e3de] uppercase tracking-wider mb-1">
                       {item.author}
                     </p>
-                    <p className="font-sans text-[10px] text-[#e1e3de]/50 uppercase tracking-widest">
+                    <p className="text-[10px] text-[#e1e3de]/50 uppercase tracking-widest">
                       {item.role}
                     </p>
                  </div>

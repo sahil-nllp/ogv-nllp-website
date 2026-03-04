@@ -56,7 +56,7 @@ export default function ContactPage() {
               Get in <br/> <span className="italic font-light opacity-90">Touch.</span>
             </h1>
             
-            <p className="font-sans text-lg text-[#e1e3de]/60 font-light leading-relaxed mb-16">
+            <p className="text-lg text-[#e1e3de]/60 font-light leading-relaxed mb-16">
               Start a conversation about healthcare infrastructure, operational strategy, or facility development. 
             </p>
 
@@ -64,19 +64,19 @@ export default function ContactPage() {
             <div className="flex flex-col gap-6 border-l border-[#e1e3de]/10 pl-6">
                <div>
                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#e1e3de]/40 mb-1">Direct Comms</p>
-                 <a href="mailto:comms@ogv-nllp.com" className="font-sans text-lg tracking-wide hover:text-white transition-colors duration-300">
+                 <a href="mailto:comms@ogv-nllp.com" className="text-lg tracking-wide hover:text-white transition-colors duration-300">
                    comms@ogv-nllp.com
                  </a>
                </div>
                <div>
                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#e1e3de]/40 mb-1">Global Headquarters</p>
-                 <p className="font-sans text-lg tracking-wide">Sydney, Australia</p>
+                 <p className="text-lg tracking-wide">Sydney, Australia</p>
                </div>
                <div>
                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#e1e3de]/40 mb-1">Current Status</p>
                  <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-                    <p className="font-sans text-sm tracking-wide">Accepting New Projects</p>
+                    <p className="text-sm tracking-wide">Accepting New Projects</p>
                  </div>
                </div>
             </div>

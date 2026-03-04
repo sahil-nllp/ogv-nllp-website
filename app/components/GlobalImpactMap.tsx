@@ -111,7 +111,7 @@ export default function GlobalImpactMap() {
           </h3>
         </div>
         <div className="max-w-xs text-right">
-          <p className="font-sans text-xs md:text-sm text-[#e1e3de]/60 leading-relaxed">
+          <p className="text-xs md:text-sm text-[#e1e3de]/60 leading-relaxed">
             Our autonomous network nodes operate at the edge, ensuring zero-latency communication and unbreakable redundancy across continents.
           </p>
         </div>
@@ -132,13 +132,13 @@ export default function GlobalImpactMap() {
           {hoveredNode && (
             <>
               <div className="w-2 h-2 rounded-full bg-[#fdf5cc] animate-pulse mb-3 shadow-[0_0_10px_#fdf5cc]" />
-              <p className="font-sans text-[10px] uppercase tracking-widest text-[#e1e3de]/60 mb-1">{hoveredNode.city}, {hoveredNode.country}</p>
+              <p className="text-[10px] uppercase tracking-widest text-[#e1e3de]/60 mb-1">{hoveredNode.city}, {hoveredNode.country}</p>
               <h4 className="font-serif italic text-2xl text-[#e1e3de] mb-4">{hoveredNode.id === 'hq' ? 'Central Hub' : 'Node Active'}</h4>
               
               <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#e1e3de]/20 to-transparent mb-4" />
               
               <p className="font-mono text-[9px] uppercase tracking-widest text-[#e1e3de]/40">{hoveredNode.metricTitle}</p>
-              <p className="font-sans text-lg text-[#e1e3de]">{hoveredNode.metricValue}</p>
+              <p className="text-lg text-[#e1e3de]">{hoveredNode.metricValue}</p>
             </>
           )}
         </div>

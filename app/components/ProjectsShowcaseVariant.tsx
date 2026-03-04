@@ -212,7 +212,7 @@ export default function ProjectsShowcaseVariant() {
                     <h3 className="font-serif text-6xl md:text-8xl lg:text-9xl text-white tracking-tighter leading-none mb-2 drop-shadow-lg">
                        {project.title}
                     </h3>
-                    <p className="font-sans text-sm md:text-lg text-[#e1e3de]/80 max-w-2xl font-light leading-relaxed drop-shadow-md">
+                    <p className="text-sm md:text-lg text-[#e1e3de]/80 max-w-2xl font-light leading-relaxed drop-shadow-md">
                        {project.description}
                     </p>
                  </div>

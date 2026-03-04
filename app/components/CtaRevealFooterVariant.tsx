@@ -117,7 +117,7 @@ export default function CtaRevealFooterVariant() {
                <span className="italic opacity-90">at scale.</span>
             </h2>
             
-             <Link href="/contact" className="flex items-center gap-4 px-6 py-3 border border-[#0c0d0c]/30 rounded-full font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] hover:bg-[#0c0d0c] hover:text-[#e1e3de] transition-all duration-500 pointer-events-auto mt-4">
+             <Link href="/contact" className="flex items-center gap-4 px-6 py-3 border border-[#0c0d0c]/30 rounded-full text-[10px] md:text-xs uppercase tracking-[0.2em] hover:bg-[#0c0d0c] hover:text-[#e1e3de] transition-all duration-500 pointer-events-auto mt-4">
                 Write to us, we reply quickly <span className="text-lg leading-none">→</span>
              </Link>
           </div>
@@ -145,14 +145,14 @@ export default function CtaRevealFooterVariant() {
                  <p className="font-serif text-5xl md:text-7xl mb-6 tracking-tighter">
                    <span className="italic font-light opacity-90">Let's</span> talk.
                  </p>
-                 <a href="mailto:hello@ogvnllp.com" className="font-sans text-xs md:text-sm tracking-widest uppercase border-b border-[#e1e3de]/30 pb-1 hover:border-[#e1e3de] transition-colors">
+                 <a href="mailto:hello@ogvnllp.com" className="text-xs md:text-sm tracking-widest uppercase border-b border-[#e1e3de]/30 pb-1 hover:border-[#e1e3de] transition-colors">
                    hello@ogvnllp.com
                  </a>
               </div>
               
               {/* Socials Column */}
               <div className="md:col-span-3 flex flex-col gap-4 font-mono text-[10px] md:text-xs uppercase tracking-widest text-[#e1e3de]/50">
-                 <h4 className="text-[#e1e3de] mb-4 font-sans tracking-[0.3em] font-bold opacity-100">Socials</h4>
+                 <h4 className="text-[#e1e3de] mb-4 tracking-[0.3em] font-bold opacity-100">Socials</h4>
                  <a href="#" className="hover:text-[#e1e3de] transition-colors">Instagram</a>
                  <a href="#" className="hover:text-[#e1e3de] transition-colors">X (Twitter)</a>
                  <a href="#" className="hover:text-[#e1e3de] transition-colors">LinkedIn</a>
@@ -161,7 +161,7 @@ export default function CtaRevealFooterVariant() {
 
               {/* Company Column */}
               <div className="md:col-span-3 flex flex-col gap-4 font-mono text-[10px] md:text-xs uppercase tracking-widest text-[#e1e3de]/50">
-                 <h4 className="text-[#e1e3de] mb-4 font-sans tracking-[0.3em] font-bold opacity-100">Company</h4>
+                 <h4 className="text-[#e1e3de] mb-4 tracking-[0.3em] font-bold opacity-100">Company</h4>
                  <a href="#" className="hover:text-[#e1e3de] transition-colors">Expertise</a>
                  <a href="#" className="hover:text-[#e1e3de] transition-colors">Projects</a>
                  <a href="#" className="hover:text-[#e1e3de] transition-colors">Studio</a>
@@ -173,7 +173,7 @@ export default function CtaRevealFooterVariant() {
            {/* Enormous Background Text Anchored to Bottom */}
            <div className="absolute bottom-0 left-0 w-full overflow-hidden flex items-end justify-center pointer-events-none select-none translate-y-[28%] z-0">
               <h1 
-                className="font-serif text-[#e1e3de] opacity-[0.03] whitespace-nowrap leading-[0.75]"
+                className="font-noka text-[#e1e3de] opacity-[0.03] whitespace-nowrap leading-[0.75]"
                 style={{ fontSize: "19vw", letterSpacing: "-0.02em" }}
               >
                  OGV/NLLP

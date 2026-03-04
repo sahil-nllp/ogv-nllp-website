@@ -63,7 +63,7 @@ export default function InsightsPage() {
             <h1 className="font-serif text-6xl md:text-7xl lg:text-[5.5rem] tracking-tighter leading-[1] pb-8">
               Our <span className="italic font-light opacity-90">Blog.</span>
             </h1>
-            <p className="font-sans text-lg md:text-xl text-[#e1e3de]/60 font-light leading-relaxed max-w-xl">
+            <p className="text-lg md:text-xl text-[#e1e3de]/60 font-light leading-relaxed max-w-xl">
               Thoughts, methodologies, and updates on the future of healthcare infrastructure.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function InsightsPage() {
                    <h2 className="font-serif text-3xl md:text-5xl leading-[1.1] mb-6 tracking-tight text-[#e1e3de] group-hover:text-white transition-colors duration-300">
                      {article.title}
                    </h2>
-                   <p className="font-sans text-base md:text-lg text-[#e1e3de]/60 leading-relaxed max-w-lg">
+                   <p className="text-base md:text-lg text-[#e1e3de]/60 leading-relaxed max-w-lg">
                      {article.excerpt}
                    </p>
                 </div>
