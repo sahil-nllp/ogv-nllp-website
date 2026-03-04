@@ -99,6 +99,8 @@ const DefaultCursorLight: FC = () => (
 
 type CursorTheme = 'light' | 'dark'; // light = light-colored cursor (dark bg), dark = dark-colored cursor (light bg)
 
+const DESKTOP_BREAKPOINT_PX = 768; // Tailwind md – hide custom cursor on mobile/tablet
+
 export function SmoothCursor({
   cursor: cursorProp,
   springConfig = {
@@ -108,6 +110,7 @@ export function SmoothCursor({
     restDelta: 0.001,
   },
 }: SmoothCursorProps) {
+  const [showCursor, setShowCursor] = useState(false);
   const [cursorTheme, setCursorTheme] = useState<CursorTheme>('light');
   const cursorThemeRef = useRef<CursorTheme>('light');
   const lastMousePos = useRef<Position>({ x: 0, y: 0 });
@@ -130,7 +133,20 @@ export function SmoothCursor({
     damping: 35,
   });
 
+  // Only show custom cursor on desktop (≥768px); tablet/mobile use default cursor
   useEffect(() => {
+    const media = window.matchMedia(`(min-width: ${DESKTOP_BREAKPOINT_PX}px)`);
+    const update = () => setShowCursor(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (!showCursor) {
+      document.body.style.cursor = 'auto';
+      return;
+    }
     const updateVelocity = (currentPos: Position) => {
       const currentTime = Date.now();
       const deltaTime = currentTime - lastUpdateTime.current;
@@ -206,7 +222,9 @@ export function SmoothCursor({
       if (rafId) cancelAnimationFrame(rafId);
       if (scaleTimeoutRef.current) clearTimeout(scaleTimeoutRef.current);
     };
-  }, [cursorX, cursorY, rotation, scale]);
+  }, [showCursor, cursorX, cursorY, rotation, scale]);
+
+  if (!showCursor) return null;
 
   return (
     <motion.div
