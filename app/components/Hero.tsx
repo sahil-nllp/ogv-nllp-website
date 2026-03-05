@@ -317,7 +317,7 @@ export default function Hero() {
         {/* Bottom larger text - Reaches the bottom of the screen at the end of the scroll */}
         <div ref={bottomTextRef} className="max-w-3xl lg:max-w-4xl xl:max-w-5xl">
           <p className="text-2xl md:text-3xl lg:text-4xl xl:text-[35px] leading-[1.2] text-[#e1e3de] font-serif tracking-wide text-balance">
-            At <span className="font-noka">OGV/NLLP</span>, we believe every environment deserves to come to life with precision and care. We turn what you're imagining into infrastructure and operations that resonate, creating ecosystems that both perform and inspire.
+            At <span className="font-extrabold">OGV/NLLP</span>, we believe every environment deserves to come to life with precision and care. We turn what you're imagining into infrastructure and operations that resonate, creating ecosystems that both perform and inspire.
           </p>
         </div>
       </div>

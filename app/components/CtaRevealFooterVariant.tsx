@@ -173,7 +173,7 @@ export default function CtaRevealFooterVariant() {
            {/* Enormous Background Text Anchored to Bottom */}
            <div className="absolute bottom-0 left-0 w-full overflow-hidden flex items-end justify-center pointer-events-none select-none translate-y-[28%] z-0">
               <h1 
-                className="font-noka text-[#e1e3de] opacity-[0.03] whitespace-nowrap leading-[0.75]"
+                className="font-extrabold text-[#e1e3de] opacity-[0.03] whitespace-nowrap leading-[0.75]"
                 style={{ fontSize: "19vw", letterSpacing: "-0.02em" }}
               >
                  OGV/NLLP

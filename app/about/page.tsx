@@ -141,7 +141,7 @@ export default function AboutPage() {
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
             <p className="text-xl md:text-2xl font-light text-[#e1e3de]/80 leading-relaxed max-w-2xl">
-              <span className="font-noka">OGV/NLLP</span> is a private, independent product development partner. We focus on building and scaling new ventures through clear, simple, and reliable processes.
+              <span className="font-extrabold">OGV/NLLP</span> is a private, independent product development partner. We focus on building and scaling new ventures through clear, simple, and reliable processes.
             </p>
             <p className="text-base md:text-lg text-[#e1e3de]/50 font-light leading-relaxed max-w-xl">
               By working in focused, 30-day blocks, we offer predictable costs and transparent work, making sure our partners around the world always know what to expect.

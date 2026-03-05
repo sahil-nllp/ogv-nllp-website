@@ -27,7 +27,7 @@ export default function Header() {
         {/* Brand Logo */}
         <Link 
           href="/" 
-          className="text-[#e1e3de] group-[.theme-light]/header:text-[#0c0d0c] font-noka tracking-tight text-xl hover:opacity-70 transition-colors duration-700 pl-4 md:pl-6"
+          className="text-[#e1e3de] group-[.theme-light]/header:text-[#0c0d0c] font-extrabold tracking-tight text-xl hover:opacity-70 transition-colors duration-700 pl-4 md:pl-6"
         >
           OGV<span className="font-light text-stone-500 group-[.theme-light]/header:text-stone-400 opacity-50 mx-[2px] transition-colors duration-700">/</span>NLLP
         </Link>
